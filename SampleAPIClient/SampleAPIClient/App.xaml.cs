@@ -11,24 +11,11 @@ namespace SampleAPIClient
 {
     public partial class App : Application
     {
-        private static IRestServices<Course> cService;
-        public static IRestServices<Course> CService
-        {
-            get
-            {
-                if (cService != null)
-                {
-                    cService = new CourseServices();
-                }
-                return cService;
-            }
-        }
-
         public App()
         {
             InitializeComponent();
 
-            MainPage = new SampleAPIClient.MainPage();
+            MainPage = new CourseList();
         }
 
         protected override void OnStart()

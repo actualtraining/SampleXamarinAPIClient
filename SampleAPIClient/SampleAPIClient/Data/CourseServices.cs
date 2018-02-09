@@ -20,7 +20,7 @@ namespace SampleAPIClient.Data
             client = new HttpClient();
         }
 
-        public Task DeleteItemAsync(string id)
+        public async Task DeleteItemAsync(string id)
         {
             throw new NotImplementedException();
         }
@@ -45,9 +45,33 @@ namespace SampleAPIClient.Data
             return CourseItems;
         }
 
-        public Task SaveItemAsync(Course obj, bool isNewItem)
+        public async Task SaveItemAsync(Course obj, bool isNewItem)
         {
-            throw new NotImplementedException();
+            var urlPost = new Uri(Constans.RestUrl + "api/Courses");
+            var urlPut = new Uri(String.Format("{0}/{1}", 
+                Constans.RestUrl + "api/Courses", obj.CourseID));
+
+            try
+            {
+                var json = JsonConvert.SerializeObject(obj);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+                HttpResponseMessage response = null;
+                if (isNewItem)
+                {
+                    response = await client.PostAsync(urlPost, content);
+                }
+                else
+                {
+                    response = await client.PutAsync(urlPut, content);
+                }
+
+                if (!response.IsSuccessStatusCode)
+                    Debug.WriteLine("Data tidak berhasil disimpan");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Kesalahan: " + ex.Message);
+            }
         }
     }
 }
