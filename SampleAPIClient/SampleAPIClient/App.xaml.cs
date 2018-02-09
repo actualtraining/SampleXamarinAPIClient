@@ -14,8 +14,7 @@ namespace SampleAPIClient
         public App()
         {
             InitializeComponent();
-
-            MainPage = new CourseList();
+            MainPage = new NavigationPage(new CourseList());
         }
 
         protected override void OnStart()

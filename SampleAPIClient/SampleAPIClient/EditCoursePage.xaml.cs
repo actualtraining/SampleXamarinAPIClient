@@ -9,12 +9,12 @@ using Xamarin.Forms.Xaml;
 
 namespace SampleAPIClient
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class EditCoursePage : ContentPage
-	{
-		public EditCoursePage ()
-		{
-			InitializeComponent ();
-		}
-	}
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class EditCoursePage : ContentPage
+    {
+        public EditCoursePage()
+        {
+            InitializeComponent();
+        }
+    }
 }

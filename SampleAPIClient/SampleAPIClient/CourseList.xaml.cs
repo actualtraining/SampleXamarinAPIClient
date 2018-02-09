@@ -1,4 +1,5 @@
 ﻿using SampleAPIClient.Data;
+using SampleAPIClient.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,15 @@ namespace SampleAPIClient
         public CourseList()
         {
             InitializeComponent();
+            listCourse.ItemTapped += ListCourse_ItemTapped;
+        }
+
+        private async void ListCourse_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var data = (Course)e.Item;
+            var formDetail = new EditCoursePage();
+            formDetail.BindingContext = data;
+            await Navigation.PushAsync(formDetail);
         }
 
         private void ListCourse_Refreshing(object sender, EventArgs e)
