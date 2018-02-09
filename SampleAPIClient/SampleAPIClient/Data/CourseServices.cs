@@ -22,7 +22,17 @@ namespace SampleAPIClient.Data
 
         public async Task DeleteItemAsync(string id)
         {
-            throw new NotImplementedException();
+            var url = new Uri(String.Format("{0}/{1}", Constans.RestUrl + "api/Courses", id));
+            try
+            {
+                var response = await client.DeleteAsync(url);
+                if (!response.IsSuccessStatusCode)
+                    Debug.WriteLine("Data gagal didelete");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Kesalahan:" + ex.Message);
+            }
         }
 
         public async Task<List<Course>> RefreshDataAsync()
