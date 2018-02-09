@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleAPIClient.EditCoursePage" Title="Edit Course">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Entry x:Name="txtCourseID" Text="{Binding CourseID}" IsEnabled="False" />
+                <Entry x:Name="txtTitle" Text="{Binding Title}" />
+                <Entry x:Name="txtCredits" Text="{Binding Credits}" />
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="btnEdit" FontSize="Small" HeightRequest="40" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
