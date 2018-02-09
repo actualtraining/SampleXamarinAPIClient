@@ -18,6 +18,12 @@ namespace SampleAPIClient
         {
             InitializeComponent();
             listCourse.ItemTapped += ListCourse_ItemTapped;
+            menuAdd.Clicked += MenuAdd_Clicked;
+        }
+
+        private async void MenuAdd_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TambahCoursePage());
         }
 
         private async void ListCourse_ItemTapped(object sender, ItemTappedEventArgs e)

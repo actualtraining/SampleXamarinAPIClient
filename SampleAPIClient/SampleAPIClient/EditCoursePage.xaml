@@ -10,6 +10,7 @@
                 <Entry x:Name="txtCredits" Text="{Binding Credits}" />
                 <StackLayout Orientation="Horizontal">
                     <Button x:Name="btnEdit" Text="Save" FontSize="Small" HeightRequest="40" />
+                    <Button x:Name="btnDelete" Text="Delete" FontSize="Small" HeightRequest="40" />
                 </StackLayout>
             </StackLayout>
         </StackLayout>

@@ -2,6 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SampleAPIClient.CourseList" Title="Course List">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="menuAdd" Text="Add Course" Order="Primary" Icon="icon.png" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="listCourse" IsPullToRefreshEnabled="True" 

@@ -20,6 +20,17 @@ namespace SampleAPIClient
             InitializeComponent();
             courseService = new CourseServices();
             btnEdit.Clicked += BtnEdit_Clicked;
+            btnDelete.Clicked += BtnDelete_Clicked;
+        }
+
+        private async void BtnDelete_Clicked(object sender, EventArgs e)
+        {
+            var jawab = await DisplayAlert("Konfirmasi", "Apakah anda yakin untuk mendelete data?", "Yes", "No");
+            if (jawab)
+            {
+                await courseService.DeleteItemAsync(txtCourseID.Text);
+                await Navigation.PopAsync();
+            }
         }
 
         private async void BtnEdit_Clicked(object sender, EventArgs e)

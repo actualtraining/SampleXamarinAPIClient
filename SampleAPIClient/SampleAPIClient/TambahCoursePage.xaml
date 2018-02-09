@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SampleAPIClient.TambahCoursePage" Title="Tambah Course">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="txtCourseID" Placeholder="masukan couse id" />
+            <Entry x:Name="txtTitle" Placeholder="masukan title" />
+            <Entry x:Name="txtCredits" Placeholder="masukan credits" />
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="btnAdd" Text="Add Course" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
