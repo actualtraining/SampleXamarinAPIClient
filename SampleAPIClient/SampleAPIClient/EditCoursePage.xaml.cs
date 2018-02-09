@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SampleAPIClient.Data;
+using SampleAPIClient.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,24 @@ namespace SampleAPIClient
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditCoursePage : ContentPage
     {
+        private CourseServices courseService;
         public EditCoursePage()
         {
             InitializeComponent();
+            courseService = new CourseServices();
+            btnEdit.Clicked += BtnEdit_Clicked;
+        }
+
+        private async void BtnEdit_Clicked(object sender, EventArgs e)
+        {
+            var currCourse = new Course
+            {
+                CourseID = Convert.ToInt32(txtCourseID.Text),
+                Title = txtTitle.Text,
+                Credits = Convert.ToInt32(txtCredits.Text)
+            };
+            await courseService.SaveItemAsync(currCourse, false);
+            await Navigation.PopAsync();
         }
     }
 }
